@@ -25,17 +25,18 @@ To use the module, you need to:
 * Pass the context 'save_as_inherited_view' to the write method of ir.ui.view model in the context you want to generate inherited view instead of update the current view.
 
 Example for website pages:
-...
-from odoo import models
 
-class IrUiView(model.Model):
-   _inherit = 'ir.ui.view'
+    ...
+        from odoo import models
 
-   @api.multi
-   def save(self, value, xpath):
-      self = self.with_context(save_as_inherited_view=True)
-      return super(IrUiView, self).save(value, xpath)
-...
+        class IrUiView(model.Model):
+           _inherit = 'ir.ui.view'
+
+           @api.multi
+           def save(self, value, xpath):
+              self = self.with_context(save_as_inherited_view=True)
+              return super(IrUiView, self).save(value, xpath)
+    ...
 
 
 Known issues / Roadmap
