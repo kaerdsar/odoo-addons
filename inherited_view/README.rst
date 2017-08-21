@@ -31,8 +31,6 @@ Example for website pages:
     class IrUiView(model.Model):
         _inherit = 'ir.ui.view'
 
-        @api.multi
-
         def save(self, value, xpath):
             self = self.with_context(save_as_inherited_view=True)
 
