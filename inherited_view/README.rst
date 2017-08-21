@@ -26,19 +26,17 @@ To use the module, you need to:
 
 Example for website pages:
 
-    ```python
-
     from odoo import models
 
     class IrUiView(model.Model):
         _inherit = 'ir.ui.view'
 
         @api.multi
+
         def save(self, value, xpath):
             self = self.with_context(save_as_inherited_view=True)
-            return super(IrUiView, self).save(value, xpath)
 
-    ```
+            return super(IrUiView, self).save(value, xpath)
 
 
 Known issues / Roadmap
