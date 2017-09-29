@@ -1,6 +1,6 @@
-===============
-Inherited Views
-===============
+================
+Web View History
+================
 
 This module generates inherited views based on modified arch. Instead of update the existing view creates a new inherited view. This implementation is still a test version.
 
@@ -22,19 +22,7 @@ To install this module, you need to:
 To use the module, you need to:
 
 * Install the addon in Odoo database
-* Pass the context 'save_as_inherited_view' to the write method of ir.ui.view model in the context you want to generate inherited view instead of update the current view.
-
-Example for website pages:
-
-    from odoo import models
-
-    class IrUiView(model.Model):
-        _inherit = 'ir.ui.view'
-
-        def save(self, value, xpath):
-            self = self.with_context(save_as_inherited_view=True)
-
-            return super(IrUiView, self).save(value, xpath)
+* There is a new boolean field in the mode view called enable_history, if you set this field to True all updates will be saved as inherited views.
 
 
 Known issues / Roadmap
